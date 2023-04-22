@@ -18,7 +18,7 @@ def init():
     sortComplete = False
 
     for f in os.scandir(path):
-        if os.path.isdir(f.path) and re.match("version-", f.name):
+        if os.path.isdir(f.path) and re.match("version-", f.name) and os.path.isfile(f.path + "\\RobloxPlayerBeta.exe"):
             versions[len(versions)] = {
                 "dir": f,
                 "ctime": int(os.path.getctime(f))
@@ -28,7 +28,7 @@ def init():
         versions[0]
     except:
         return
-
+    
     while not sortComplete:
         _arrayWrite = False
 
